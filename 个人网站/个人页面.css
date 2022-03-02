@@ -1,0 +1,150 @@
+* {
+  /*初始化*/
+  margin: 0;
+  padding: 0;
+}
+body {
+  /*100%窗口高度*/
+  height: 100vh;
+  /*弹性布局居中*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*渐变背景*/
+  background: linear-gradient(400deg, #e3c520, #3ca6aa);
+  /*溢出隐藏*/
+  overflow: hidden;
+}
+.container {
+  /*相对定位*/
+  position: relative;
+  z-index: 1;
+  background-color: #fff;
+  border-radius: 15px; /*圆边角*/
+  /*弹性布局 垂直排列*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 350px;
+  height: 500px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4); /*阴影*/
+}
+.container .tit {
+  font-size: 30px;
+  margin: 75px auto 70px auto;
+}
+.container input {
+  width: 280px;
+  height: 30px;
+  text-indent: 8px;
+  border: none;
+  border-bottom: 1px solid rgb(175, 80, 80);
+  outline: none;
+  margin: 12px auto;
+}
+.container button {
+  width: 280px;
+  height: 40px;
+  margin: 35px auto 40px auto;
+  border: none;
+  background: linear-gradient(-200deg, #096669, #ecf3b1);
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 8px;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: 0.5s; /*动画过渡*/
+}
+.container button:hover {
+  background: linear-gradient(-200deg, #ecf3b1, #096669);
+  background-position-x: -280px;
+}
+.container span {
+  font-size: 14px;
+}
+.container a {
+  color: plum;
+  text-decoration: none;
+}
+ul li {
+  position: absolute;
+  border: 1px solid #fff;
+  background-color: #fff;
+  width: 30px;
+  height: 30px;
+  list-style: none;
+  opacity: 0;
+}
+.square li {
+  top: 30vh;
+  left: 90vw;
+  /*执行动画：动画名 时长 线性的 无限次播放*/
+  animation: square 7s ease infinite;
+}
+.square li:nth-child(2) {
+  top: 70vh;
+  left: 10vw;
+  animation-delay: 1s; /*设置动画延迟时间*/
+}
+.square li:nth-child(3) {
+  top: 90vh;
+  left: 85vw;
+  animation-delay: 4s;
+}
+.square li:nth-child(4) {
+  top: 70vh;
+  left: 50vw;
+  animation-delay: 7s;
+}
+.square li:nth-child(5) {
+  top: 10vh;
+  left: 20vw;
+  animation-delay: 6s;
+}
+.circle li {
+  bottom: 0;
+  left: 60vw;
+  /*执行动画：动画名 时长 线性的 无限次播放*/
+  animation: circle 9s linear infinite;
+}
+.circle li:nth-child(2) {
+  left: 30vw;
+  animation-delay: 3s; /*设置动画延迟时间*/
+}
+.circle li:nth-child(3) {
+  left: 55vw;
+  animation-delay: 5s;
+}
+.circle li:nth-child(4) {
+  left: 90vw;
+  animation-delay: 7s;
+}
+.circle li:nth-child(5) {
+  left: 70vw;
+  animation-delay: 4s;
+}
+/*定义动画*/
+@keyframes square {
+  10% {
+    transform: scale(0) rotateY(0deg);
+    opacity: 2;
+  }
+  100% {
+    transform: scale(5) rotateY(1000deg);
+    opacity: 0;
+  }
+}
+@keyframes circle {
+  0% {
+    transform: scale(0) rotateY(0deg);
+    opacity: 5;
+    bottom: 0;
+    border-radius: 0;
+  }
+  100% {
+    transform: scale(2) rotateY(1000deg);
+    opacity: 0;
+    bottom: 90vh;
+    border-radius: 100%;
+  }
+}
